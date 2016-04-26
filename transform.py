@@ -16,7 +16,7 @@ def order_points(pts):
     rect[0] = pts[np.argmin(s)]
     rect[2] = pts[np.argmax(s)]
 
-    diff = pts.diff(axis = 1)
+    diff = np.diff(pts, axis = 1)
     rect[1] = pts[np.argmin(diff)]
     rect[3] = pts[np.argmax(diff)]
 
@@ -50,7 +50,3 @@ def four_point_transform(image, pts):
     warped = cv2.warpPerspective(image, M, (maxWidth, maxHeight))
 
     return warped
-
-
-if __name__ == '__main__':
-    print('Starting the app')
